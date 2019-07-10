@@ -24,12 +24,12 @@
             </div>
         </div>
         <div class="exjianjie">
-            <p class="extit">【店长推荐】消费透明/产品包邮/送全新婚纱
+            <p class="extit">{{dianpus.title}}
             <span class="extityd">预订送情侣酒店+机票补贴+婚纱一件</span> 
 </p> 
             <p class="exshic">
-                <span class="jiage">￥2515.00</span>
-                <span class="shichangjia">市场价：￥7777.00</span>
+                <span class="jiage">￥{{dianpus.xianjia}}.00</span>
+                <span class="shichangjia">市场价：￥{{dianpus.yuanjia}}.00</span>
             </p>
              <p class="sxlippin">
                 <span class="lipini">到店礼</span>
@@ -37,7 +37,7 @@
 预定成功到店赠送10寸精美摆台一个</span>
             </p>
             <p class="guanzhu">
-                <span>已有<em>38</em>人关注该折扣</span>
+                <span>已有<em>{{dianpus.shoucang}}</em>人关注该折扣</span>
             </p>
               <p class="yudingbox">
                 <a class="yuding">咨询档期</a>
@@ -140,17 +140,20 @@ import  slides from '../../../assets/js/slide';
 
 export default {
  name: 'Exhibitionsbody',
-  mounted:function(){
-slides();
 
-  },
  data(){
 return{eximgs:[{id:1,src:require('../../../assets/1.jpg')},
 {id:2,src:require('../../../assets/2.jpg')},
 {id:3,src:require('../../../assets/3.jpg')},
-{id:4,src:require('../../../assets/4.jpg')}]
+{id:4,src:require('../../../assets/4.jpg')}],
+
+dianpus:this.$route.params.id
 }
  },
+   mounted:function(){
+        slides();
+        console.log(this.dianpus)
+  },
  components:{
 
  }

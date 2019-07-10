@@ -34,7 +34,8 @@ Vue.use(VueRouter)
         component: Exmain
       },
       {
-        path: '/jianjie/jingpin',
+        path: '/jianjie/jingpin:id',
+        name:'jingpin',
         component: Exmain
       },
       {

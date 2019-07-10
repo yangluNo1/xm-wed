@@ -10,16 +10,16 @@
               <ul>
                   <li v-for="dp in dianpus" :key="dp.index">
                            <div class="imgbox">
-                             <router-link to="/jianjie/jingpin">
-                               <img :src="dp.imgs" alt="dp.title" width="100%" height="100%">
+                             <router-link :to="{name:'jingpin',params:{id:dp}}">
+                               <img :src="dp.src" alt="dp.title" width="100%" height="100%">
                             </router-link>
                           </div>
                           <div class="hdjianjie">
-                                <p class="bt"> <router-link to="/jianjie/jingpin">{{dp.title}}</router-link></p>
+                                <p class="bt"> <router-link :to="{name:'jingpin',params:{id:dp}}">{{dp.title}}</router-link></p>
                                 <p class="time">结束日期：{{dp.time}}</p>
                                 <p class="chanshu">{{dp.chanshu}}</p>
                                 <p class="renshu">已有<span>{{dp.xqrenshu}}</span>人感兴趣</p>
-                                <router-link to="/jianjie/jingpin"><span class="chakan">查看详情</span></router-link>
+                                <router-link :to="{name:'jingpin',params:{id:dp}}"><span class="chakan">查看详情</span></router-link>
                           </div>
                   </li>
                   
@@ -39,7 +39,7 @@ export default {
 
  data(){
 return{
-    dianpus:[{id:1,title:"产品包邮/送全新婚纱/送蜜月酒店",time:"2019-07-11",chanshu:"产品包邮/送全新婚纱/送蜜月酒店",xqrenshu:188,imgs:require("../../../assets/5.jpg")}]
+    dianpus:[{id:1,title:"产品包邮/送全新婚纱/送蜜月酒店",time:"2019-07-11",chanshu:"产品包邮/送全新婚纱/送蜜月酒店",xqrenshu:"188",yuanjia:"1888",xianjia:"1000",shouchang:"30",src:require("../../../assets/5.jpg")}]
 }
  },
  components:{

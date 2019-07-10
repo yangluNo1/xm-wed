@@ -55,9 +55,9 @@ var product;
       return {
         product: [
           {id:0,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"123",describe:"性价比高，无隐形消费",jiage:"4588.00",mendian:"5588",follow:"105",flcompany:"厦门苏禾婚纱摄影工作室"},
-          {id:0,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"123",describe:"性价比高，无隐形消费",jiage:"4588.00",mendian:"5588",follow:"105",flcompany:"厦门苏禾婚纱摄影工作室"},
-          {id:0,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"123",describe:"性价比高，无隐形消费",jiage:"4588.00",mendian:"5588",follow:"105",flcompany:"厦门苏禾婚纱摄影工作室"},
-          {id:0,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"123",describe:"性价比高，无隐形消费",jiage:"4588.00",mendian:"5588",follow:"105",flcompany:"厦门苏禾婚纱摄影工作室"}
+          {id:1,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"123",describe:"性价比高，无隐形消费",jiage:"4588.00",mendian:"5588",follow:"105",flcompany:"厦门苏禾婚纱摄影工作室"},
+          {id:2,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"123",describe:"性价比高，无隐形消费",jiage:"4588.00",mendian:"5588",follow:"105",flcompany:"厦门苏禾婚纱摄影工作室"},
+          {id:3,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"123",describe:"性价比高，无隐形消费",jiage:"4588.00",mendian:"5588",follow:"105",flcompany:"厦门苏禾婚纱摄影工作室"}
         ]
       
     }

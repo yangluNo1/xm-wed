@@ -15,22 +15,27 @@
     </div>
      <div class="guashi">
             <div class="h1"></div>
-            <div class="imgboxs"><img src="//pic9.wed114.cn/201810/2018102016264152.jpg" alt=""></div>
+            <div class="imgboxs"><img :src="pronavs[0].touxiang" alt=""></div>
         </div>
         </div>
 </template>
 
 <script>
 export default {
-     name: 'protopnav',
-
- data(){
-return{pronavs:[
-    {userid:1,names:"厦门大提大作婚纱摄影工作室",renqi:"321.232w",pinglun:"2540",zuopin:"1232",touxiang:require("./../../assets/logo.png")}]}
- },
- components:{
-   
- }
+        name: 'protopnav',
+      
+        data(){
+        return{
+            pronavs:
+            [
+            {userid:1,names:"厦门大提大作婚纱摄影工作室",renqi:"321.232w",pinglun:"2540",zuopin:"1232",touxiang:require("../../assets/5.jpg")}
+            ]
+            }
+         }
+         ,created(){
+            this.$emit("childByValue",this.pronavs[0].touxiang)
+           
+        }
 }
 </script>
 <style scoped="">

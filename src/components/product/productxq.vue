@@ -62,12 +62,12 @@
     <div class="zhekou">
         <a class="zhekoutit" href="" title="厦门苏禾婚纱摄影工作室-精品折扣" target="_blank">精品折扣</a>
            
-            <div class="zhekoubox" v-for="ps in 6" :key="ps">
-                 <router-link to="/jianjie/jingpin" class="zhekouboxa">
-                <img src="//pic11.wed114.cn/pic/20190704/2019070411105318211504x450_300_0.jpg" width="100%" height="75%"/>
+            <div class="zhekoubox" v-for="zhekou in zhekous" :key="zhekou.index">
+                 <router-link :to="{name:'jingpin',params:{id:zhekou}}" class="zhekouboxa">
+                <img :src="zhekou.src" width="100%" height="75%"/>
                 <div class="zhekoujianjie">
-                        <router-link class="zhekoubt" to="/jianjie/jingpin">【店长推荐】消费透明/产品包邮/送全新婚纱</router-link>
-                        <span class="jiage">￥6788</span> <span class="yuanjia">￥7788</span>
+                        <router-link class="zhekoubt" to="/jianjie/jingpin">{{zhekou.title}}</router-link>
+                        <span class="jiage">￥{{zhekou.xianjia}}</span> <span class="yuanjia">￥{{zhekou.yuanjia}}</span>
                         <span class="shoucang"><i></i>12</span>                   
                 </div> 
                 </router-link>
@@ -104,8 +104,16 @@ export default{
         return{
 items:[
     {id:0,path:require("../../assets/3.jpg")},
-    {id:0,path:require("../../assets/2.jpg")},
-    {id:0,path:require("../../assets/2.jpg")}
+    {id:1,path:require("../../assets/2.jpg")},
+    {id:2,path:require("../../assets/2.jpg")}
+    ],
+    zhekous:[
+        {id:0,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'2324',yuanjia:"1000",shoucang:23,src:require("../../assets/6.jpg")},
+        {id:1,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'1111',yuanjia:"1000",shoucang:23,src:require("../../assets/6.jpg")},
+        {id:2,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'2222',yuanjia:"1000",shoucang:23,src:require("../../assets/6.jpg")},
+        {id:3,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'3333',yuanjia:"1000",shoucang:23,src:require("../../assets/6.jpg")},
+        {id:4,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'4444',yuanjia:"1000",shoucang:23,src:require("../../assets/6.jpg")},
+        {id:5,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'5555',yuanjia:"1000",shoucang:23,src:require("../../assets/6.jpg")}
     ]
         }
     }

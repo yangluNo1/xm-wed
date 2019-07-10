@@ -1,10 +1,10 @@
 <template>
 
 <div class="Exhibitions">
-    <protopnav></protopnav>
+    <protopnav v-on:childByValue="childByValue"></protopnav>
     <div class="jianjie">
         <div class="touxiang">
-            <img :src="dianpus.touxiang"/>
+            <img :src="txss"/>
         </div>
         <div class="dianpujieshao">
             <ul>
@@ -61,16 +61,17 @@ export default {
 
  data(){
 return{dianpus:{id:1,stopname:"厦门大提大作婚纱摄影工作室",renqi:123,pinglun:1201,zuopin:142,dizhi:"[思明区] 滨海街道黄厝溪头下71号",phone:1888888888,touxiang:require("../../../assets/5.jpg")}
-    ,commonTitle:""
+    ,commonTitle:"",txss:""
 }
  },
    created(){
+      
     var routePath = this.$route.path;
     //this.routeList.push(routePath);
     switch(routePath){
     	case '/home':
         this.commonTitle = '首页';
-        break;
+        break;     
         case '/jingpinzhekou':
         this.commonTitle = '精品折扣';
         break;
@@ -85,7 +86,12 @@ return{dianpus:{id:1,stopname:"厦门大提大作婚纱摄影工作室",renqi:12
         break;
        
     }
-},
+}, methods: {
+   childByValue: function (childValue) {
+    // childValue就是子组件传过来的值
+    this.txss = childValue
+   }
+  },
  components:{
    protopnav,
    productnav

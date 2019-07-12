@@ -77,7 +77,7 @@ window._bd_share_main = "";
   
   </style>
   
-  <style scoped="scoped">
+  <style scoped>
 
 	  .weixinerweima {
   
@@ -97,7 +97,7 @@ window._bd_share_main = "";
 .headerbox {
    
    position: relative;
-	height:60px;
+	height:95px;
 	width:1080px;
 	margin:0 auto;
 	padding:25px 0

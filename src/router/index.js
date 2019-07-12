@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import App from '@/App'
 import home from '@/components/home'
 import productxq from '@/components/product/productxq'
 import Exmain from '@/components/product/Exhibition/Exmain'
@@ -9,6 +10,7 @@ import Wkzhekou from '@/components/product/Works/Wkzhekou'
 import Wkgongsi from '@/components/product/Works/Wkgongsi'
 import Wkhuodong from '@/components/product/Works/Wkhuodong'
 import search from '@/components/home/search'
+import navPages from '@/components/nav/navPages'
 
 Vue.use(VueRouter)
 
@@ -24,6 +26,10 @@ Vue.use(VueRouter)
         //     component:home
         //   }
         // ]
+      },
+      {
+        path:'/navPages',
+        component:navPages
       },
       {
         path: '/',

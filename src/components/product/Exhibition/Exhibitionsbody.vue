@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="exjianjie">
-            <p class="extit">{{dianpus.title}}
+            <p class="extit"><span class="extitle">{{dianpus.title}}</span>
             <span class="extityd">预订送情侣酒店+机票补贴+婚纱一件</span> 
 </p> 
             <p class="exshic">
@@ -40,10 +40,11 @@
                 <span>已有<em>{{dianpus.shoucang}}</em>人关注该折扣</span>
             </p>
               <p class="yudingbox">
-                <a class="yuding">咨询档期</a>
-                 <a class="kefu">在线咨询</a>
+                <a class="yuding" @click="zxopen()">咨询档期</a>
+                 <a class="kefu" @click="zxopen()">在线咨询</a>
             </p>
         </div>
+        <zxdangqi ref="child"></zxdangqi>
         <div class="exjieshaomain">
             <div class="jieshao">
                 <span>产品介绍</span>
@@ -137,26 +138,33 @@
 <script>
 import '../../../assets/js/siema.min'
 import  slides from '../../../assets/js/slide';
-
+import zxdangqi from '../Zxdangqi'
 export default {
- name: 'Exhibitionsbody',
-
- data(){
-return{eximgs:[{id:1,src:require('../../../assets/1.jpg')},
-{id:2,src:require('../../../assets/2.jpg')},
-{id:3,src:require('../../../assets/3.jpg')},
-{id:4,src:require('../../../assets/4.jpg')}],
-
-dianpus:this.$route.params.id
-}
- },
-   mounted:function(){
-        slides();
-        console.log(this.dianpus)
-  },
- components:{
-
- }
+    name: 'Exhibitionsbody',
+    data(){
+        return{
+            eximgs:[{id:1,src:require('../../../assets/1.jpg')},
+                    {id:2,src:require('../../../assets/2.jpg')},
+                    {id:3,src:require('../../../assets/3.jpg')},
+                    {id:4,src:require('../../../assets/4.jpg')}],
+                    dianpus:this.$route.params.id,
+                    dialogTableVisible: false,
+                    dialogFormVisible: false
+                }
+    },
+    mounted:function(){
+            slides();
+            console.log(this.dianpus)
+    },
+    methods:{
+          zxopen(){
+            this.dialogFormVisible = true
+            this.$refs.child.parentMsg(this.dialogFormVisible)
+        }
+    },
+    components:{
+        zxdangqi
+    }
 }
 </script>
 
@@ -351,6 +359,10 @@ dt,dd,ul,li{
     position: relative;
     float: left;
 }
+.exjianjie .extitle{
+    width: 100%;
+    float: left;
+}
 .extityd{
     font-weight: 400;
     font-size: 12px;
@@ -364,7 +376,7 @@ dt,dd,ul,li{
     font-size: 20px;
     color: #333;
     float: left;
-
+    width: 100%;
 }
 
 .exjianjie{

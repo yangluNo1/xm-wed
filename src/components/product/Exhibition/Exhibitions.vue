@@ -44,6 +44,19 @@
             </ul>
             
         </div>
+        <el-dropdown>
+            <span class="el-dropdown-link">
+            <i class="el-icon-share"></i>分享
+            </span>
+         
+            <el-dropdown-menu slot="dropdown" class="bdsharebuttonbox">
+                <el-dropdown-item><a href="#" class="bds_tsina" data-cmd="tsina"><i class="xl"></i>新浪微博</a></el-dropdown-item>
+                <el-dropdown-item><a href="#" class="bds_tqq" data-cmd="tqq"><i class="tx"></i>腾讯微博</a></el-dropdown-item>
+                <el-dropdown-item><a href="#" class="bds_qzone" data-cmd="qzone"><i class="qq1"></i>QQ空间</a></el-dropdown-item>
+                <el-dropdown-item><a href="#" class="bds_weixin" data-cmd="weixin"><i class="wx1"></i>微信朋友圈</a></el-dropdown-item>
+            </el-dropdown-menu>
+          
+        </el-dropdown>
     </div>
     <productnav></productnav>
    <div class="exposition">
@@ -95,10 +108,54 @@ return{dianpus:{id:1,stopname:"厦门大提大作婚纱摄影工作室",renqi:12
  components:{
    protopnav,
    productnav
+ },beforeCreate(){
+window._bd_share_main = "";
+ },mounted(){
+      const s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=';
+    document.body.appendChild(s);
  }
 }
 </script>
 <style scoped="">
+.el-dropdown-menu a{
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    width: 110px;
+    height: 30px;
+    background: none;
+    line-height: 36px;
+}
+.xl,.tx,.qq1,.wx1{
+    width: 40px;
+height: 30px;
+display: block;
+float: left;
+}
+.xl{
+background: url(../../../assets/newglobal.png) no-repeat scroll 15px -912px transparent;
+}
+.tx{
+background: url(../../../assets/newglobal.png) no-repeat scroll 15px -952px transparent;
+}
+.qq1{
+background: url(../../../assets/newglobal.png) no-repeat scroll 15px -872px transparent;
+}
+.wx1{
+background: url(../../../assets/newglobal.png) no-repeat scroll 15px -999px transparent;
+}
+.el-dropdown-menu__item{
+    padding: 0;
+    padding-right: 10px;
+}
+.el-dropdown{
+   width: 150px;
+   margin-top: 100px;
+   text-align: center;
+    
+}
 .kf2{
         width: 16px;
     height: 16px;

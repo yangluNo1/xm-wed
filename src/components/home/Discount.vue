@@ -18,17 +18,17 @@
 
          <li class="slide col-sm-3" v-for="pro in product" :key="pro.index"> 
            <p class="picpx">
-            <a :href="pro.hrefs" :title="pro.title" target="_blank"> 
+            <router-link :to="{name:'jingpin',params:{id:pro}}" > 
          <img :src="pro.images" width="300" height="200px" alt="pro.title" :title="pro.title" /> 
-         </a> 
+            </router-link> 
          </p> 
-         <p class="miaoshubox"> <span class="pb5"> <a :href="pro.hrefs" :title="pro.title" target="_blank">{{pro.title}}</a></span>
+         <p class="miaoshubox"> <span class="pb5"> <router-link :to="{name:'jingpin',params:{id:pro}}" > {{pro.title}}</router-link></span>
           <span class="mscont">{{pro.describe}}</span> </p> 
-          <p class="miaoshujiage clearfix"> <span class="jiage"><em>￥</em><b>{{pro.jiage}}</b></span> 
-          <span class="yuyuegift">预约有礼</span> <span class="mendian">门店价 ￥{{pro.mendian}}}</span>
+          <p class="miaoshujiage clearfix"> <span class="jiage"><em>￥</em><b>{{pro.xianjia}}.00</b></span> 
+          <span class="yuyuegift">预约有礼</span> <span class="mendian">门店价 ￥{{pro.yuanjia}}</span>
            </p> 
           <div class="msbgbox"> 
-           <p class="msbg clearfix"> <span class="follow">已有<em>{{pro.follow}}</em>对新人关注</span> <span class="flcompany">{{pro.flcompany}}}</span> </p> 
+           <p class="msbg clearfix"> <span class="follow">已有<em>{{pro.shoucang}}</em>对新人关注</span> <span class="flcompany">{{pro.flcompany}}}</span> </p> 
           </div> 
           </li>
 
@@ -54,10 +54,10 @@ var product;
     data() {
       return {
         product: [
-          {id:0,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"123",describe:"性价比高，无隐形消费",jiage:"4588.00",mendian:"5588",follow:"105",flcompany:"厦门苏禾婚纱摄影工作室"},
-          {id:1,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"123",describe:"性价比高，无隐形消费",jiage:"4588.00",mendian:"5588",follow:"105",flcompany:"厦门苏禾婚纱摄影工作室"},
-          {id:2,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"123",describe:"性价比高，无隐形消费",jiage:"4588.00",mendian:"5588",follow:"105",flcompany:"厦门苏禾婚纱摄影工作室"},
-          {id:3,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"123",describe:"性价比高，无隐形消费",jiage:"4588.00",mendian:"5588",follow:"105",flcompany:"厦门苏禾婚纱摄影工作室"}
+          {id:0,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"【店长推荐】消费透明/产品包邮/送全新婚纱",describe:"性价比高，无隐形消费",xianjia:"4588",yuanjia:"5588",shoucang:105,flcompany:"厦门苏禾婚纱摄影工作室"},
+          {id:1,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"【店长推荐】消费透明/产品包邮/送全新婚纱",describe:"性价比高，无隐形消费",xianjia:"4588",yuanjia:"5588",shoucang:105,flcompany:"厦门苏禾婚纱摄影工作室"},
+          {id:2,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"【店长推荐】消费透明/产品包邮/送全新婚纱",describe:"性价比高，无隐形消费",xianjia:"4588",yuanjia:"5588",shoucang:105,flcompany:"厦门苏禾婚纱摄影工作室"},
+          {id:3,hrefs:"/jianjie/jingpin",images:require("../../assets/2.jpg"),title:"【店长推荐】消费透明/产品包邮/送全新婚纱",describe:"性价比高，无隐形消费",xianjia:"4588",yuanjia:"5588",shoucang:105,flcompany:"厦门苏禾婚纱摄影工作室"}
         ]
       
     }

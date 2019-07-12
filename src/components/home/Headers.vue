@@ -16,12 +16,12 @@
      <div class="headerfoltxt">
       关注我们：
      </div> 
-     <div class="clearfix" id="snsiconbox"> 
-      <ul id="snsiconinner"> 
+     <div id="snsiconbox" class="clearfix bshare-custom"> 
+      <ul id="snsiconinner" class="bdsharebuttonbox" > 
        <!--微博：https://e.weibo.com/wed114gb-->
-       <li> <a class="headerxinlangweibo" href="" target="_blank" title="wed114结婚网的新浪微博" rel="nofollow"></a> </li> 
+       <li > <a class="bshare-qzone bds_qzone" href="#" data-cmd="qzone"  target="_blank" title="wed114结婚网的QQ认证空间" rel="nofollow"></a> </li> 
        <!--微博：https://user.qzone.qq.com/448133112-->
-       <li> <a class="headerqqkongjian" href="" target="_blank" title="wed114结婚网的QQ认证空间" rel="nofollow"></a> </li> 
+       <li> <a class="bshare-sinaminiblog bds_tsina" href="#" data-cmd="tsina" target="_blank" title="wed114结婚网的新浪微博" rel="nofollow"></a> </li> 
        <!--微博-->
        <li class="wx"> <a class="headertweixin" href="javascript:;" @mouseover="shows()" @mouseout="hides()">  </a> </li> 
 	   
@@ -36,31 +36,47 @@
    </div> 
 
   </template> 
+
   <script>
-  import HeaderNav from "./HeaderNav.vue";
-   
-  var data;
-export default {
-  name: 'Header',
-  components:{
-        HeaderNav
-	},
-	methods:{
-			shows(){
-				document.getElementsByClassName("weixinerweima")[0].style.display="block";    
-			},
-			hides(){
-				document.getElementsByClassName("weixinerweima")[0].style.display="none"; 
-			}
-	},
-  data () {
-    return {
-      msg: data
-    }
+import HeaderNav from "./HeaderNav.vue";
+
+var data;
+export
+default {
+        name:
+		'Header',
+		beforeCreate(){
+window._bd_share_main = "";
+		},
+        components: {
+			HeaderNav
+        },
+        methods: {
+            shows() {
+                document.getElementsByClassName("weixinerweima")[0].style.display = "block";
+            },
+            hides() {
+                document.getElementsByClassName("weixinerweima")[0].style.display = "none";
+            }
+        },
+        data() {
+            return {
+                msg: data
+            }
+        },mounted() {
+    const s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=';
+    document.body.appendChild(s);
   }
-}
+	}
+	
 </script> 
   <!-- Add "scoped" attribute to limit CSS to this component only --> 
+  <style>
+  
+  </style>
+  
   <style scoped="scoped">
 
 	  .weixinerweima {
@@ -155,29 +171,32 @@ export default {
 	float:left;
 	line-height:20px
 }
-.headertxweibo {
-	background:url(../../assets/newglobal.png) no-repeat scroll 0 -323px transparent;
+.bshare-custom .bshare-sinaminiblog{
+	background:url(../../assets/newglobal.png) no-repeat scroll 0px -920px transparent;
 	display:block;
-	width:20px;
+	padding-left: 20px;
+	margin: 0;
 	height:20px;
-	position:relative
+
 }
 .headerxinlangweibo {
 	background:url(../../assets/newglobal.png) no-repeat scroll -31px -323px transparent;
 	display:block;
-	width:20px;
+	
 	height:20px
 }
-.headerqqkongjian {
+.bshare-custom .bshare-qzone{
 	background:url(../../assets/newglobal.png) no-repeat scroll -64px -323px transparent;
 	display:block;
-	width:20px;
+	padding-left: 20px;
+	margin: 0;
 	height:20px
 }
-.headertweixin {
+.headertweixin{
 	background:url(../../assets/newglobal.png) no-repeat scroll -95px -323px transparent;
 	display:block;
-	width:20px;
+	padding-left: 20px;
+	margin: 0;
 	height:20px
 }
 #snsiconbox {

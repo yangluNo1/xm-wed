@@ -52,12 +52,15 @@
                     <span>电话</span><strong>1888888888</strong>
                 </div>
                 <div class="pro-basic-yybtn clearfix">
-<a data-url="" class="mdialog" data-width="750" data-height="320" href="javascript:">咨询档期</a>
+<a data-url="" class="mdialog" data-width="750" data-height="320" href="javascript:" v-on:click="zxopen()">咨询档期</a>
 <span><i></i>预订成功包单程机票+全新新娘定制婚纱一套</span>
 </div>
             </div>
             
-      </div>
+      </div>  
+   
+<zxdangqi ref="child"></zxdangqi>
+
      <productnav></productnav>
     <div class="zhekou">
         <a class="zhekoutit" href="" title="厦门苏禾婚纱摄影工作室-精品折扣" target="_blank">精品折扣</a>
@@ -94,11 +97,13 @@
 <script>
 import productnav from './productnav';
 import protopnav from './protopnav';
+import zxdangqi from './Zxdangqi'
 export default{
     name:"protopbox",
     components:{
         productnav,
-        protopnav
+        protopnav,
+        zxdangqi
     },
     data(){
         return{
@@ -109,20 +114,29 @@ items:[
     ],
     zhekous:[
         {id:0,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'2324',yuanjia:"1000",shoucang:23,src:require("../../assets/6.jpg")},
-        {id:1,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'1111',yuanjia:"1000",shoucang:23,src:require("../../assets/6.jpg")},
+        {id:1,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'1111',yuanjia:"1000",shoucang:23,src:require("../../assets/5.jpg")},
         {id:2,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'2222',yuanjia:"1000",shoucang:23,src:require("../../assets/6.jpg")},
         {id:3,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'3333',yuanjia:"1000",shoucang:23,src:require("../../assets/6.jpg")},
         {id:4,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'4444',yuanjia:"1000",shoucang:23,src:require("../../assets/6.jpg")},
         {id:5,title:"【店长推荐】消费透明/产品包邮/送全新婚纱",xianjia:'5555',yuanjia:"1000",shoucang:23,src:require("../../assets/6.jpg")}
-    ]
+    ],dialogTableVisible: false,
+        dialogFormVisible: false
+
+
+        }
+    },methods:{
+        zxopen(){
+            this.dialogFormVisible = true
+            this.$refs.child.parentMsg(this.dialogFormVisible)
         }
     }
         
 }
-</script>s
+</script>
 
 
 <style scoped="">
+
 .zhekouboxa{
     list-style: none;
     text-decoration: none;

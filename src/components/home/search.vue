@@ -32,9 +32,9 @@
                     <ul>
                         <li v-for="hd in huodong" :key="hd.index">
                             <div>
-                                <router-link :to="hd.href"><img :src="hd.images" width="100%"/></router-link>
-                                <span class="bt"><router-link :to="hd.href">{{hd.title}}</router-link></span>
-                                <span class="dianpu"><router-link :to="hd.href">{{hd.stopname}}</router-link><i></i><strong>123</strong></span>
+                                <router-link :to="{name:'jingpin',params:{id:hd}}"><img :src="hd.images" width="100%"/></router-link>
+                                <span class="bt"> <router-link :to="{name:'jingpin',params:{id:hd}}">{{hd.title}}</router-link></span>
+                                <span class="dianpu"> <router-link :to="{name:'jingpin',params:{id:hd}}">{{hd.stopname}}</router-link><i></i><strong>123</strong></span>
                             </div>
                         </li>
                     </ul>
@@ -50,7 +50,7 @@ export default {
     data(){
         return{
             searchs:[{id:1,dianming:"厦门卡卡服装设计师",title:"【店长推荐】消费透明/产品包邮/送全新婚纱",href:"/jianjie/jingpin",dizhi:"滨海街道黄盾溪头下71号",xianjia:'5555',yuanjia:"1000",shoucang:23,nr:"内容",images:require("../../assets/5.jpg")}],
-            huodong:[{id:1,title:"【全国包邮】-【限时抢购】",stopname:"厦门卡卡服装设计师",href:"/jianjie/jingpin",images:require("../../assets/6.jpg")}]
+            huodong:[{id:1,title:"【全国包邮】-【限时抢购】",stopname:"厦门卡卡服装设计师",href:"/jianjie/jingpin",dizhi:"滨海街道黄盾溪头下71号",xianjia:'5555',yuanjia:"1000",shoucang:23,images:require("../../assets/6.jpg")}]
         }
     },components:{
         Headers

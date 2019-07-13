@@ -13,61 +13,63 @@ import search from '@/components/home/search'
 import navPages from '@/components/nav/navPages'
 
 Vue.use(VueRouter)
+const router = new VueRouter({
 
-  export default new VueRouter({
-  
-    routes: [
-      {
-        path: '/home',
-        component: productxq
-        // ,children:[
-        //   {
-        //     path:"/productxq",
-        //     component:home
-        //   }
-        // ]
-      },
-      {
-        path:'/navPages',
-        component:navPages
-      },
-      {
-        path: '/',
-        component: home
-      },
-      {
-        path: '/jianjie',
-        component: Exmain
-      },
-      {
-        path: '/jianjie/jingpin:id',
-        name:'jingpin',
-        component: Exmain
-      },
-      {
-        path: '/jianjie/Wkmain',
-        component: Wkmain
-      },{
-        path:'/zuopinjingxuan',
-        component:Wkjingxuan
-      },{
-        path:'/jingpinzhekou',
-        component:Wkzhekou,
-        
-      },{
-        path:'/gongsijianjie',
-        component:Wkgongsi
-      },{
-        path:'/youhuihuodong',
-        component:Wkhuodong
-      }
-      ,{
-        path:'/search',
-        component:search
-      }
-    ],
-    mode:'history'
-    
-  }
-  )
+  routes: [{
+      path: '/home',
+      component: productxq
+      // ,children:[
+      //   {
+      //     path:"/productxq",
+      //     component:home
+      //   }
+      // ]
+    },
+    {
+      path: '/navPages',
+      component: navPages
+    },
+    {
+      path: '/',
+      component: home
+    },
+    {
+      path: '/jianjie',
+      component: Exmain
+    },
+    {
+      path: '/jianjie/jingpin:id',
+      name: 'jingpin',
+      component: Exmain
+    },
+    {
+      path: '/jianjie/Wkmain',
+      component: Wkmain
+    }, {
+      path: '/zuopinjingxuan',
+      component: Wkjingxuan
+    }, {
+      path: '/jingpinzhekou',
+      component: Wkzhekou,
 
+    }, {
+      path: '/gongsijianjie',
+      component: Wkgongsi
+    }, {
+      path: '/youhuihuodong',
+      component: Wkhuodong
+    }, {
+      path: '/search',
+      component: search
+    }
+  ],
+  mode: 'history'
+
+})
+
+;
+router.afterEach((to, from) => {
+  // ...
+  window.scroll(0, 0);
+})
+export default router;

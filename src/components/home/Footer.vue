@@ -1,7 +1,6 @@
-
-  <template> 
-   <div class="footer"> 
-     <!-- <div class="box">
+<template>
+  <div class="footer">
+    <!-- <div class="box">
        <div class="youqing">
          <span class="bt">友情链接:</span>
          <ul>
@@ -9,27 +8,28 @@
          </ul>
        </div>
      </div> -->
-     <div class="banquan">
-       {{copyright}}
-      </div>
-   </div> 
+    <div class="banquan">
+      {{copyright}}
+    </div>
+  </div>
 
-  </template> 
-  <script>
-
-  var data="© 2008-2019 Wed114结婚网 | 蜀ICP备08107937号-1 |  关于我们  - 联系我们  - 招贤纳士  - 广告服务  - 商家入驻  - 免责声明 - 联系电话：028-84520690";
-export default {
-  name: 'Footer',
-  data () {
-    return {
-      copyright: data
+</template>
+<script>
+  var data =
+    "© 2008-2019 Wed114结婚网 | 蜀ICP备08107937号-1 |  关于我们  - 联系我们  - 招贤纳士  - 广告服务  - 商家入驻  - 免责声明 - 联系电话：028-84520690";
+  export default {
+    name: 'Footer',
+    data() {
+      return {
+        copyright: data
+      }
     }
   }
-}
-</script> 
-  <!-- Add "scoped" attribute to limit CSS to this component only --> 
-  <style scoped="">
-/* .youqing .bt{
+
+</script>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped="">
+  /* .youqing .bt{
   font-size: 18px;
   font-weight: 700;
   padding-left: 20px;
@@ -42,23 +42,28 @@ export default {
   width: 100%;
   height: 200px;
 } */
-.footer{
-   
+  .footer {
+
     width: 100%;
     background: #e3e2e2;
-}
-.banquan{
-    width:100%;
+  }
+
+  .banquan {
+    width: 100%;
     height: 50px;
-  background: #ccc;
+    background: #ccc;
     position: relative;
     bottom: 0;
     text-align: center;
     line-height: 50px;
     font-size: 12px;
-}
-ul,li,a{
-  list-style: none;
-  text-decoration: none;
-}
-</style> 
+  }
+
+  ul,
+  li,
+  a {
+    list-style: none;
+    text-decoration: none;
+  }
+
+</style>

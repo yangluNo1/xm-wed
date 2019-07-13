@@ -1,27 +1,29 @@
 <template>
 
-<div class="Exmian">
+  <div class="Exmian">
 
     <Exhibitions></Exhibitions>
     <Exhibitionsbody></Exhibitionsbody>
-</div>
+  </div>
 </template>
 
 <script>
-import Exhibitions from './Exhibitions';
-import Exhibitionsbody from './Exhibitionsbody';
-export default {
- name: 'Exmian',
+  import Exhibitions from './Exhibitions';
+  import Exhibitionsbody from './Exhibitionsbody';
+  export default {
+    name: 'Exmian',
 
- data(){
-return{pronavs:[
-]}
- },
- components:{
-   Exhibitions,
-   Exhibitionsbody
- }
-}
+    data() {
+      return {
+        pronavs: []
+      }
+    },
+    components: {
+      Exhibitions,
+      Exhibitionsbody
+    }
+  }
+
 </script>
 <style scoped="">
 

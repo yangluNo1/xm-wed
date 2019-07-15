@@ -69,7 +69,7 @@
           },
           {
             id: 7,
-            href: "/home",
+            href: "/Pictures",
             title: "精选美图",
             value: "精选美图"
           },

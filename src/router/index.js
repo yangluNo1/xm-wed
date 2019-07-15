@@ -11,7 +11,7 @@ import Wkgongsi from '@/components/product/Works/Wkgongsi'
 import Wkhuodong from '@/components/product/Works/Wkhuodong'
 import search from '@/components/home/search'
 import navPages from '@/components/nav/navPages'
-
+import Pictures from '@/components/nav/Pictures'
 Vue.use(VueRouter)
 const router = new VueRouter({
 
@@ -32,6 +32,10 @@ const router = new VueRouter({
     {
       path: '/',
       component: home
+    },
+    {
+      path: '/Pictures',
+      component: Pictures
     },
     {
       path: '/jianjie',

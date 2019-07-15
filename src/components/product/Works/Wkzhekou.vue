@@ -159,9 +159,9 @@
     float: left;
     margin-left: 20px;
   }
-  .zhekoubox:hover{
+  /* .zhekoubox:hover{
     border: 1px solid #cb1032;
-  }
+  } */
   .zhekou {
     width: 980px;
     height: 700px;

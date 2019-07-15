@@ -63,7 +63,7 @@ const router = new VueRouter({
       component: search
     }
   ],
-  mode: 'history'
+ mode: 'history'
 
 })
 

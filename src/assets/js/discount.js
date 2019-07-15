@@ -4,13 +4,13 @@ function fn (){
 
     $('.slider1').bxSlider({
 
-      slideWidth: 350,
+      slideWidth: 355,
 
       minSlides: 2,
 
       maxSlides: 3,
 
-      slideMargin: 10
+      slideMargin: 5
 
     });
 

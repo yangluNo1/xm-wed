@@ -414,11 +414,11 @@
   .jingxuanbox {
     margin-left: 20px;
   }
-
+/* 
   .zhekoubox:hover,
   .jingxuanbox:hover {
     border: 1px solid #ff4163;
-  }
+  } */
 
   .zhekoubt {
     list-style: none;

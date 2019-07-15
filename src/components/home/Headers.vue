@@ -1,5 +1,6 @@
 <template>
   <div class="headerbox clearfix">
+    <div class="headsbox">
     <div class="headerlogo">
       <span><a class="logopic" href="/" title="卡卡旅拍摄影"></a></span>
       <span class="city"> 全国<a href="">[切换]</a> </span>
@@ -30,7 +31,7 @@
 
         </ul>
       </div>
-
+    </div>
     </div>
     <HeaderNav></HeaderNav>
     <div class="weixinerweima">
@@ -81,6 +82,9 @@
 </style>
 
 <style scoped>
+  .headsbox{
+    padding: 0 20px;
+  }
   .weixinerweima {
 
     width: 180px;

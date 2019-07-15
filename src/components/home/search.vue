@@ -244,6 +244,11 @@
     padding-left: 10px;
     font-weight: 700;
   }
+  .search{
+    background: #fff;
+    width: 1080px;
+    margin: 0 auto;
+  }
 
   .searchbox {
     width: 1080px;

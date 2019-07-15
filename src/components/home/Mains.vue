@@ -92,6 +92,21 @@
 
 
 <style scoped="">
+.swiper-button-prev:hover,.swiper-button-next:hover {
+    opacity: .7
+  }
+  .swiper-button-prev {
+    background: url(../../assets/newglobal.png?20170518) no-repeat scroll 0 -1121px transparent;
+    width: 46px;
+    height: 46px;
+  }
+
+  .swiper-button-next {
+    background: url(../../assets/newglobal.png?20170518) no-repeat scroll 0 -1192px transparent;
+    width: 46px;
+    height: 46px;
+  }
+
   .swiper-slide swiper-slide-next {
     margin-right: 0px;
   }

@@ -54,7 +54,7 @@
   }
 
   #home {
-    width: 1180px;
+   
     margin: 0 auto;
     background: #ffffff;
   }

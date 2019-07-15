@@ -19,7 +19,7 @@
                 <li class="slide col-sm-3" v-for="pro in product" :key="pro.index">
                   <p class="picpx">
                     <router-link :to="{name:'jingpin',params:{id:pro}}">
-                      <img :src="pro.images" width="300" height="200px" alt="pro.title" :title="pro.title" />
+                      <img :src="pro.images" alt="pro.title" :title="pro.title" />
                     </router-link>
                   </p>
                   <p class="miaoshubox"> <span class="pb5">
@@ -109,9 +109,9 @@
 
 </script>
 <style>
-body{
-  font-family: 微软雅黑,microsoft yahei,Arial,Helvetica,sans-serif,宋体;
-}
+  body {
+    font-family: 微软雅黑, microsoft yahei, Arial, Helvetica, sans-serif, 宋体;
+  }
 
 </style>
 
@@ -218,7 +218,7 @@ body{
 
   .tehuibox li {
     float: left;
-  
+
     width: 340px;
     border: 1px solid #e9e9e9;
     /*padding-top: 20px;e9e9e9*/
@@ -230,8 +230,9 @@ body{
   }
 
   .tehuibox li img {
-    width: 300px;
-    height: 200px
+    width: 100%;
+    height: 200px;
+
   }
 
   .tehuibox li:hover {
@@ -274,7 +275,7 @@ body{
 
   .miaoshujiage {
     padding-left: 20px;
-   
+
   }
 
   .miaoshujiage em {
@@ -333,7 +334,7 @@ body{
     border-top: 1px solid #ededed;
     float: left;
     margin-top: 10px;
-    width:100%;
+    width: 100%;
   }
 
   .msbg {
@@ -391,7 +392,8 @@ body{
     z-index: 100
   }
 
-  .pinpaiLarrow:hover {
+  .pinpaiLarrow:hover,
+  .pinpaiRarrow:hover {
     opacity: .7
   }
 

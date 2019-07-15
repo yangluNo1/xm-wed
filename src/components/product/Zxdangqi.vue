@@ -95,12 +95,15 @@
 
 </script>
 <style>
+.el-dialog{
+  width: 40%
+}
   .el-dialog__headerbtn .el-dialog__close {
     color: #fff;
   }
 
   .el-dialog__header {
-    background: #ff4163;
+    background: #000000;
   }
 
   .el-dialog__header span {

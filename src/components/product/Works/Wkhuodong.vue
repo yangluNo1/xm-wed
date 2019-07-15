@@ -43,9 +43,9 @@
       return {
         dianpus: [{
           id: 1,
-          title: "产品包邮/送全新婚纱/送蜜月酒店",
+          title: "免费领取2000元机票补贴",
           time: "2019-07-11",
-          chanshu: "产品包邮/送全新婚纱/送蜜月酒店",
+          chanshu: "赠送精修+原始底片+星光摆台+婚礼喜报+全国包邮。",
           xqrenshu: "188",
           yuanjia: "1888",
           xianjia: "1000",
@@ -120,7 +120,7 @@
 
   .huodongbox .imgbox {
     float: left;
-    width: 40%;
+    width: 33%;
     margin: 10px;
     height: 210px;
 

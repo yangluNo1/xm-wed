@@ -42,11 +42,7 @@
   width: 100%;
   height: 200px;
 } */
-  .footer {
 
-    width: 100%;
-    background: #e3e2e2;
-  }
 
   .banquan {
     width: 100%;

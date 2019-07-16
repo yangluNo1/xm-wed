@@ -58,5 +58,11 @@
     margin: 0 auto;
     background: #ffffff;
   }
-
+  .footer {
+    width: 1080px;
+    background: #e3e2e2;
+    position: relative;
+    bottom: 0;
+    margin: 0 auto;
+  }
 </style>

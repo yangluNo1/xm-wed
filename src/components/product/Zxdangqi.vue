@@ -6,8 +6,8 @@
         <img :src="imgs" width="100%">
       </div>
       <div class="zxjieshao">
-        <p class="zxdm">厦门薇漫一婚纱摄影</p>
-        <p class="zxidzhi"><span>地址</span><strong>[思明区] 黄厝溪头下三个厦大人遇书房2楼</strong></p>
+        <span class="zxdm">厦门薇漫一婚纱摄影</span>
+        <span class="zxidzhi"><span>地址</span><span>[思明区] 黄厝溪头下三个厦大人遇书房2楼</span></span>
       </div>
       <p class="cg">
         预订成功包单程机票+全新新娘定制婚纱一套
@@ -95,15 +95,18 @@
 
 </script>
 <style>
+ 
 .el-dialog{
-  width: 40%
+   max-width: 750px;
 }
   .el-dialog__headerbtn .el-dialog__close {
     color: #fff;
   }
 
   .el-dialog__header {
-    background: #000000;
+    background:url('../../assets/dq.png');
+    background-size: 100% ;
+     background-repeat: no-repeat, repeat; 
   }
 
   .el-dialog__header span {
@@ -127,9 +130,14 @@
     width: 100%;
     float: right;
   }
-
+  .el-dialog__wrapper{
+    display:flex;
+   
+  }
   .el-dialog {
-    display: flow-root;
+    overflow: hidden;
+     align-items: center;
+     align-self: center;
   }
 
   .zximgbox {
@@ -141,9 +149,11 @@
   .zxjieshao {
     float: left;
     width: 48%;
-    margin-left: 10px;
+     padding-top: 10px;
   }
-
+  .zxjieshao span{
+    padding-top: 10px;
+  }
   .zxidzhi {
     font-size: 12px;
     color: #999;

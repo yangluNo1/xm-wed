@@ -16,7 +16,7 @@
 </template>
 <script>
   var data =
-    "© 2008-2019 Wed114结婚网 | 蜀ICP备08107937号-1 |  关于我们  - 联系我们  - 招贤纳士  - 广告服务  - 商家入驻  - 免责声明 - 联系电话：028-84520690";
+    "© 2008-2019 卡卡全球旅拍 | 蜀ICP备08107937号-1 |  关于我们  - 联系我们  - 招贤纳士  - 广告服务  - 商家入驻  - 免责声明 - 联系电话：028-84520690";
   export default {
     name: 'Footer',
     data() {
@@ -47,12 +47,12 @@
   .banquan {
     width: 100%;
     height: 50px;
-    background: #ccc;
     position: relative;
     bottom: 0;
     text-align: center;
     line-height: 50px;
     font-size: 12px;
+
   }
 
   ul,

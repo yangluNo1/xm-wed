@@ -20,10 +20,10 @@
       <div id="snsiconbox" class="clearfix bshare-custom">
         <ul id="snsiconinner" class="bdsharebuttonbox">
           <!--微博：https://e.weibo.com/wed114gb-->
-          <li> <a class="bshare-qzone bds_qzone" href="#" data-cmd="qzone" target="_blank" title="wed114结婚网的QQ认证空间"
+          <li> <a class="bshare-qzone bds_qzone" href="#" data-cmd="qzone" target="_blank" title="卡卡全球旅拍的QQ认证空间"
               rel="nofollow"></a> </li>
           <!--微博：https://user.qzone.qq.com/448133112-->
-          <li> <a class="bshare-sinaminiblog bds_tsina" href="#" data-cmd="tsina" target="_blank" title="wed114结婚网的新浪微博"
+          <li> <a class="bshare-sinaminiblog bds_tsina" href="#" data-cmd="tsina" target="_blank" title="卡卡全球旅拍的新浪微博"
               rel="nofollow"></a> </li>
           <!--微博-->
           <li class="wx"> <a class="headertweixin" href="javascript:;" @mouseover="shows()" @mouseout="hides()"> </a>

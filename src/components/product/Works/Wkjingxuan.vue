@@ -26,10 +26,12 @@
         </div>
       </div>
     </div>
+    <footers></footers>
   </div>
 </template>
 <script>
   import Exhibitions from '../Exhibition/Exhibitions'
+  import footers from '../../home/Footer'
   export default {
     name: 'Wkjingxuan',
 
@@ -71,7 +73,8 @@
       }
     },
     components: {
-      Exhibitions
+      Exhibitions,
+      footers
     }
   }
 
@@ -118,14 +121,13 @@
   .jingxuan{
     margin: 0 auto;
     width: 940px;
-    display: flow-root;
+    overflow: hidden;
   }
   .wkjingxuanbox {
     width: 980px;
     height: auto;
-    margin: 20px auto;
+    margin: 0px auto;
     background: #fff;
-    display: flow-root;
   }
 
   .jingxuanbox {

@@ -38,7 +38,7 @@
       </div>
       <div class="Picturesbox" v-for="ff in tupians" :key="ff.index">
 
-        <a target="_blank" @click="openshow()"><img :src="ff.images[0]" />
+        <a target="_blank" @click="openshow()"><img :src="ff.images[0]" width="100%" height="100%"/>
         </a>
         <div class="phototit">
           <h4>
@@ -73,12 +73,21 @@
         </div>
       </div>
     </div>
-    <footers></footers>
+    <!--分页器-->
+        <div class="pageinfo">
+          <ul class="pagelist">
+            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+              :current-page="currentPage3" :page-sizes="[100, 200, 300, 400]" :page-size="100"
+              layout="total, sizes, prev, pager, next, jumper" :total="900">
+            </el-pagination>
+          </ul>
+        </div>
+  <footers></footers>
   </div>
 </template>
 
 <script>
-import footers from '../home/Footer'
+  import footers from '../home/Footer'
   export default {
     name: 'Pictures',
     data() {
@@ -105,7 +114,11 @@ import footers from '../home/Footer'
           }
 
         ],
-        pictures: [{}]
+        pictures: [{}],
+          currentPage1: 5,
+        currentPage2: 5,
+        currentPage3: 5,
+        currentPage4: 4
       }
     },
     mounted() {
@@ -119,20 +132,35 @@ import footers from '../home/Footer'
       openshow() {
 
         document.getElementsByClassName("shows")[0].style.display = "block";
+      },
+        handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(val) {
+        console.log(`当前页: ${val}`);
       }
-    },components:{
-        footers
+    },
+    components: {
+      footers
     }
   }
 
 </script>
 <style>
+.pageinfo,
+  .pagelist {
+    list-style: none;
+    float: left;
+    width: 100%;
+    margin: 30px auto;
+    text-align: center
+  }
   .footer {
     width: 100%;
-    background: #e3e2e2;
-    position: absolute;
+    position: relative;
     bottom: 0;
   }
+
   .cp span:nth-child(2) {
     color: #269075;
   }
@@ -213,11 +241,39 @@ import footers from '../home/Footer'
     position: relative;
   }
 
-  .el-carousel__item img {
-    margin: 50% auto 0;
-    display: block;
-    transform: translateY(-80%);
+  @-webkit-keyframes zoom {
+    from {
+      -webkit-transform: scale(0)
+    }
 
+    to {
+      -webkit-transform: scale(1);
+    }
+  }
+
+  @keyframes zoom {
+    from {
+      -webkit-transform: scale(0)
+    }
+
+    to {
+      -webkit-transform: scale(1);
+    }
+  }
+
+  .el-carousel__item {
+    display: flex;
+  }
+
+  .el-carousel__item img {
+    margin: 0 auto;
+    align-items: center;
+    align-self: center;
+    max-width: 100%;
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
   }
 
   .el-carousel__indicators {
@@ -231,7 +287,7 @@ import footers from '../home/Footer'
     width: 20%;
     height: 100%;
     background: #fff;
-    position: absolute;
+    position: fixed;
     z-index: 50;
     right: 0;
     padding: 50px;
@@ -241,17 +297,23 @@ import footers from '../home/Footer'
   .shows {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 99;
     top: 0;
     display: none;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+
   }
 
   .showbox {
     width: 75%;
     overflow: hidden;
     height: 100%;
-    background: black;
+
 
 
     position: absolute;
@@ -345,7 +407,9 @@ import footers from '../home/Footer'
     margin-bottom: 10px;
   }
 
-  .tuijain li,.tuijain span ,.fl span{
+  .tuijain li,
+  .tuijain span,
+  .fl span {
     text-align: left;
     display: block;
     line-height: 50px;
@@ -395,7 +459,8 @@ import footers from '../home/Footer'
     background: black;
     width: 100%;
     height: 50px;
-    line-height: 50px
+    line-height: 50px;
+    overflow: hidden;
   }
 
   .Picturesbox {
@@ -408,8 +473,8 @@ import footers from '../home/Footer'
   }
 
   .Picturesmain {
-    float: left;
-    display: flow-root;
+    /* float: left; */
+    overflow: hidden;
     padding-left: 50px;
   }
 

@@ -30,10 +30,12 @@
         </div>
       </div>
     </div>
+    <footers></footers>
   </div>
 </template>
 <script>
   import Exhibitions from '../Exhibition/Exhibitions'
+  import footers from  '../../home/Footer'
   export default {
     name: 'Wkjingxuan',
 
@@ -124,7 +126,8 @@
       }
     },
     components: {
-      Exhibitions
+      Exhibitions,
+      footers
     }
   }
 
@@ -141,7 +144,7 @@
   .wkzhekoubox {
     width: 980px;
     height: auto;
-    margin: 20px auto;
+    margin: 0 auto;
     background: #fff;
     display: flow-root;
   }
@@ -154,7 +157,7 @@
   .zhekoubox {
     width: 290px;
     height: 270px;
-    border: 1px solid #cccccc;
+    border: 1px solid #d5d5d5;
     margin: 10px;
     float: left;
     margin-left: 20px;
@@ -164,7 +167,8 @@
   } */
   .zhekou {
     width: 980px;
-    height: 700px;
+    overflow: hidden;
+    padding-bottom: 10px;
     background: #fff;
     margin: 0 auto;
     margin-top: 10px;

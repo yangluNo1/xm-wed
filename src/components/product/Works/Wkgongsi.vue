@@ -42,7 +42,7 @@
     float: left;
     text-align: center;
     font-family: '楷體';
-    font-weight: 600;
+
     color: black;
   }
 

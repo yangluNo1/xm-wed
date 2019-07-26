@@ -5,13 +5,11 @@
       <div class="cation-content">
         <div style="height:50px"></div>
         <!-- 可以删除 -->
-
         <div class="cation-middle">
           <div class="crumbs"></div>
           <dl class="cation-list">
             <dt>类型</dt>
             <dd class="lx">
-
               <a href="#" rel="" name="huxing" v-for="lx in lxList" :key="lx.name" :class="{active : active == lx.name}"
                 @click="selected(lx.name)" class="all on">{{lx.name}}</a>
             </dd>
@@ -21,16 +19,14 @@
             <dd class="qy">
               <a href="#" rel="" name="mianji" v-for="item in wpList" :key="item.name"
                 :class="{active2 : active2 == item.name}" @click="selected2(item.name)" class="all on">{{item.name}}</a>
-
             </dd>
           </dl>
-
         </div>
         <div class="paixu">
-          <a class="zh">综合排序</a>
-          <a class="bz">保障</a>
-          <a class="zp">作品</a>
-          <a class="rq">人气</a>
+          <a class="zh" :class="{'paixuactive':0 ==checkindex}" @click="selected3(0)">综合排序</a>
+          <a class="bz" :class="{'paixuactive':1 ==checkindex}" @click="selected3(1)">保障</a>
+          <a class="zp" :class="{'paixuactive':2 ==checkindex}" @click="selected3(2)">作品</a>
+          <a class="rq" :class="{'paixuactive':3 ==checkindex}" @click="selected3(3)">人气</a>
         </div>
         <div class="case_list">
           <ul>
@@ -50,12 +46,9 @@
                   <span>优惠活动<em></em></span>
                   <router-link :to="{name:'jingpin',params:{id:search}}">【一价全包】全国包邮+全新婚纱+酒店住宿+接机</router-link>
                 </p>
-
               </div>
             </li>
-
           </ul>
-
         </div>
         <div class="huodongbox">
           <ul>
@@ -75,21 +68,23 @@
           </ul>
         </div>
       </div>
-
     </div>
+    <footers></footers>
   </div>
 </template>
 <script>
   import Headers from "../home/Headers";
-
+  import footers from '../home/Footer'
   export
   default {
     name: 'navPage',
     components: {
-      Headers
+      Headers,
+      footers
     },
     data() {
       return {
+        checkindex: 0,
         searchs: [{
             id: 1,
             dianming: "厦门卡卡服装设计师",
@@ -182,50 +177,49 @@
     methods: {
       selected(name) {
         this.active = name;
-
       },
       selected2(name) {
         this.active2 = name;
-
+      },
+      selected3(index) {
+        this.checkindex = index;
       }
-
     },
     mounted() {
       this.active = '不限';
       this.active2 = '不限';
+      this.checkindex = 0
     }
   }
 
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .inpostcont a {
+  .case_list .inpostcont a {
     font-size: 12px;
     display: block;
     line-height: 28px;
     height: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
-
   .dz {
     color: #999;
     font-size: 12px;
   }
-
   .jiage {
     color: #ff4163;
     font-size: 12px;
   }
-
   .jianjie .title {
     font-size: 20px;
   }
-
   .case_list .jianjie {
     width: 50%;
     float: left;
     padding-top: 20px;
   }
-
   .inpostcont span {
     background: #ff4163;
     color: #fff;
@@ -238,7 +232,6 @@
     height: 28px;
     font-size: 14px;
   }
-
   .inpostcont span em {
     position: absolute;
     border: 5px solid #fff;
@@ -246,7 +239,6 @@
     top: 4px;
     left: -9px;
   }
-
   .case_list li {
 
     width: 100%;
@@ -254,24 +246,19 @@
     border: 1px solid #e6e6e6;
     border-collapse: collapse;
   }
-
   .paixu {
     width: 100%;
     height: 30px;
     line-height: 30px;
     margin: 20px auto;
-    background: #eeeeee;
     padding-left: 40px;
   }
-
   .paixu a:nth-child(1) {
-    color: #ff4163;
+    background: none;
   }
-
   .zh {
     margin-right: 20px;
   }
-
   .hdimgbox .dm {
     color: #333;
     font-size: 16px;
@@ -279,21 +266,18 @@
     padding-left: 5px;
     margin-bottom: 10px;
   }
-
   .hdimgbox .view i {
     width: 15px;
     height: 15px;
     background: url(../../assets/pub_shopbasic_icon.png) no-repeat -68px -225px transparent;
     float: left;
   }
-
   .hdimgbox .view {
     font-size: 12px;
     color: #999;
     float: right;
     line-height: 20px;
   }
-
   .hdimgbox .ttspan {
     color: #999;
     font-size: 12px;
@@ -311,7 +295,7 @@
   }
 
   .hdimgbox {
-  
+
     margin: 0 10px;
     margin-bottom: 20px;
     height: 240px;
@@ -325,15 +309,17 @@
   .rq {
     background: url(../../assets/newsheying.png) no-repeat scroll 30px -212px transparent;
     padding-right: 15px;
+    color: #666;
+  }
+
+  .paixuactive {
+    color: #ff4163;
+    background: url(../../assets/newsheying.png) no-repeat scroll -40px -214px;
   }
 
   .paixu a {
 
-
-    color: #666;
     font-size: 14px;
-
-
   }
 
   .active,
@@ -343,7 +329,6 @@
     height: 28px;
     background: #ff4163;
     line-height: 28px;
-
     color: #fff;
     font-weight: 600;
   }
@@ -380,15 +365,6 @@
     text-decoration: none;
     color: #4c4c4c;
   }
-
-  img {
-    border: 0;
-  }
-
-  a:hover {
-    color: #ff6600;
-  }
-
 
   /* 必要布局样式css */
 
@@ -465,7 +441,7 @@
   }
 
   .cation-list a:hover {
-    color: red;
+    /* color: red; */
     font-weight: 600;
 
   }
@@ -473,6 +449,11 @@
   .huodongbox {
     width: 28%;
     float: left;
+  }
+
+  .huodongbox li:not(:first-child) {
+    border: 1px solid #e6e6e6;
+    margin: 10px;
   }
 
   .hdboxbt {
@@ -505,7 +486,7 @@
   }
 
   .case_list ul li {
-
+    padding: 15px;
     float: left;
     margin-right: 15px;
     overflow: hidden;
@@ -519,15 +500,14 @@
   .case_list ul li .img {
     float: left;
     /* width: 40%; */
-    height: 245px;
+    height: 225px;
     overflow: hidden;
   }
 
   .case_list ul li img {
     width: 100%;
-    height: 245px;
+    height: 225px;
     display: block;
-    margin: 10px;
   }
 
   .case_list ul li img:hover {

@@ -49,7 +49,7 @@
           <span>地址</span><strong>[思明区] 黄厝溪头下三个厦大人遇书房2楼</strong>
         </div>
         <div class="phone">
-          <span>电话</span><strong>1888888888</strong>
+          <span>电话</span><strong>15959579994</strong>
         </div>
         <div class="pro-basic-yybtn clearfix">
           <a data-url="" class="mdialog" data-width="750" data-height="320" href="javascript:"
@@ -66,11 +66,11 @@
     <div class="zhekou">
       <a class="zhekoutit" href="" title="厦门苏禾婚纱摄影工作室-精品折扣" target="_blank">精品折扣</a>
       <router-link class="zklink" to="/jingpinzhekou">更多</router-link>
-      <div class="zhekoubox" v-for="zhekou in zhekous" :key="zhekou.index">
+      <div class="zhekoubox" v-for="zhekou in zhekous" :key="zhekou.index" @click=" que(zhekou)">
         <router-link :to="{name:'jingpin',params:{id:zhekou}}" class="zhekouboxa">
           <img :src="zhekou.src" width="100%" height="75%" />
           <div class="zhekoujianjie">
-            <router-link class="zhekoubt" to="/jianjie/jingpin">{{zhekou.title}}</router-link>
+            <router-link class="zhekoubt" to="/jianjie/jingpin" targer="_blank">{{zhekou.title}}</router-link>
             <span class="jiage">￥{{zhekou.xianjia}}</span> <span class="yuanjia">￥{{zhekou.yuanjia}}</span>
             <span class="shoucang"><i></i>12</span>
           </div>
@@ -84,15 +84,17 @@
       <router-link class="jxlink" to="/zuopinjingxuan">更多</router-link>
       <div class="jingxuanbox" v-for="ps in 6" :key="ps">
         <router-link to="/jianjie/Wkmain" class="zhekouboxa">
-          <img src="http://pic11.wed114.cn/pic/20190704/2019070411105318211504x450_300_0.jpg" width="100%" height="85%" />
+          <img src="http://pic11.wed114.cn/pic/20190704/2019070411105318211504x450_300_0.jpg" width="100%"
+            height="85%" />
           <div class="jingxuanjianjie">
             <router-link class="jingxuanbt" to="/jianjie/Wkmain">【店长推荐】消费透明/产品包邮/送全新婚纱</router-link>
             <span class="chakan"><i></i>12</span>
           </div>
         </router-link>
       </div>
-
     </div>
+    <proyouhui></proyouhui>
+    <footers></footers>
   </div>
 </template>
 
@@ -100,13 +102,17 @@
 <script>
   import productnav from './productnav';
   import protopnav from './protopnav';
-  import zxdangqi from './Zxdangqi'
+  import zxdangqi from './Zxdangqi';
+  import proyouhui from './proyouhui'
+  import footers from '../home/Footer';
   export default {
     name: "protopbox",
     components: {
       productnav,
       protopnav,
-      zxdangqi
+      zxdangqi,
+      footers,
+      proyouhui
     },
     data() {
       return {
@@ -176,14 +182,21 @@
         dialogFormVisible: false
 
 
+
       }
     },
     methods: {
       zxopen() {
         this.dialogFormVisible = true
         this.$refs.child.parentMsg(this.dialogFormVisible)
+      },
+      que(pro) {
+        sessionStorage.setItem('objStr', JSON.stringify(pro))
+        //this.$router.go(0)
       }
+
     }
+
 
   }
 
@@ -200,17 +213,23 @@
   .jingxuanbox {
     width: 290px;
     height: 270px;
-    border: 1px solid #cccccc;
+    border: 1px solid #e8e8e8;
     margin: 10px;
     float: left
   }
 
+  .zhekoubox:hover,
+  .jingxuanbox:hover {
+    border: 1px solid #ff4163;
+  }
+
   .zhekou {
     width: 980px;
-    height: 700px;
+    overflow: hidden;
     background: #fff;
     margin: 0 auto;
     margin-top: 10px;
+    padding-bottom: 10px;
   }
 
   .icon {
@@ -288,7 +307,6 @@
   .pro-basic-yybtn {
     width: 100%;
     height: 50px;
-    ;
   }
 
   .pro-basic-yybtn a {
@@ -307,6 +325,64 @@
     margin-top: 50px;
   }
 
+  .pro-basic-yybtn a:before,
+  .pro-basic-yybtn a:before {
+    content: ' ';
+    position: absolute;
+    top: 200px;
+    left: -45px;
+
+    width: 5px;
+    height: 50px;
+
+    background: #fff;
+
+    opacity: 0.3;
+    -webkit-transition: all 0.6s ease-out;
+    transition: all 0.6s ease-out;
+    -webkit-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+  }
+
+  .pro-basic-yybtn a:hover:before,
+  .pro-basic-yybtn a:hover:before {
+    width: 45px;
+    left: 205px;
+  }
+
+  .zhekoubox a,
+  .jingxuanbox a {
+
+    position: relative;
+
+  }
+
+  /*
+  .zhekoubox a:before,
+  .jingxuanbox a:before {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 202px;
+    top: -182px;
+    left: 0px;
+    overflow: hidden;
+    
+    -webkit-transform: skewX(-25deg);
+    倾斜
+    -moz-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+  }
+
+  .zhekoubox a:hover:before,
+  .jingxuanbox a:hover:before {
+    transition: left 1s ;
+    left: 200px;
+background: -moz-linear-gradient(left, rgba(255, 255, 255, 0)0, rgba(255, 255, 255, .2)50%, rgba(255, 255, 255, 0)100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, .2)), color-stop(100%, rgba(255, 255, 255, 0)));
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0)0, rgba(255, 255, 255, .2)50%, rgba(255, 255, 255, 0)100%);
+  }
+*/
   .pro-basic-yybtn i {
     float: left;
     width: 12px;
@@ -353,21 +429,21 @@
   .address span,
   .phone span {
     float: left;
-    color: #6f6f6f;
-    font-size: 16px;
-    font-family: '宋体';
-    font-weight: 600;
+    color: #999;
+    font-size: 12px;
+
   }
 
   .address strong,
   .phone strong {
 
-    margin-left: 20px;
+    margin-left: 10px;
     float: left;
-    color: #999;
-    font-size: 14px;
-    font-family: '宋体';
-
+    color: #666;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: inherit;
   }
 
   .phone {
@@ -378,8 +454,6 @@
     white-space: nowrap;
     color: #6f6f6f;
     font-size: 16px;
-    font-family: '宋体';
-    font-weight: 600px;
     height: 30px;
   }
 
@@ -388,13 +462,12 @@
     list-style: none;
     text-decoration: none;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: bold;
     color: #303030;
-    width: 150px;
-    height: 50px;
+
     display: block;
     line-height: 50px;
-    text-align: center;
+    margin-left: 20px;
   }
 
   .zklink,
@@ -414,7 +487,8 @@
   .jingxuanbox {
     margin-left: 20px;
   }
-/* 
+
+  /* 
   .zhekoubox:hover,
   .jingxuanbox:hover {
     border: 1px solid #ff4163;
@@ -427,7 +501,7 @@
     width: 90%;
     height: 30px;
     line-height: 30px;
-    color: #666;
+    color: #333;
     font-size: 16px;
     font-weight: 400;
     margin-left: 15px;
@@ -483,7 +557,8 @@
 
   .jingxuan {
     width: 980px;
-    height: 600px;
+    overflow: hidden;
+    padding-bottom: 20px;
     margin: 20px auto;
     background: #fff;
   }
@@ -501,10 +576,9 @@
     width: 80%;
     height: 30px;
     line-height: 30px;
-    color: #666;
+    color: #333;
     font-size: 14px;
     font-weight: 400;
-
     overflow: hidden;
     word-break: break-all;
 

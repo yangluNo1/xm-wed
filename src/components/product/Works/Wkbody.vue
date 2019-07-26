@@ -5,7 +5,7 @@
     <div class="title">
       <h2>{{images[0].title}}</h2>
       <span class="plbox">
-        <a href="" title="">
+        <a title="">
           <em class="pl"></em>
           <span class="shoucang">{{images[0].shoucang}}</span>
         </a>
@@ -21,7 +21,7 @@
         <div class="clearfix img-gather" id="thumbs" v-for="im in images" :key="im.index">
           <a :href="im.src" title="图片一">
             <!-- <div :style="{'background': 'url('+im.src+') no-repeat center center'}"></div>-->
-            <img :src="im.src" width="900px" />
+            <img :src="im.src" width="100%" />
           </a>
         </div>
 
@@ -185,12 +185,28 @@
         ]
       }
     },
+    mounted() {
+      //console.log("数据" + this.images);
+      this.$emit('childByValue', this.images)
+
+    },
     components: {
 
     }
   }
 
 </script>
+<style>
+  #pagelimit {
+    position: absolute;
+    top: 40px;
+    left: 5%;
+    color: #fff;
+    font-size: 20px;
+  }
+
+</style>
+
 <style scoped="">
   @charset "utf-8";
 
@@ -319,8 +335,9 @@
 
   #thumbs {
     width: 100%;
-    margin: 8px;
-    text-align: center
+
+    text-align: center;
+    overflow: hidden;
   }
 
   #thumbs a {

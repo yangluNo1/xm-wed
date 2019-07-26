@@ -25,7 +25,7 @@
         .then(function (res) {
             //console.log(res.body.result)
             this.apps = res.body.result;
-            console.log(this.apps)
+            //console.log(this.apps)
           }
 
         )
@@ -51,6 +51,7 @@
 <style scoped="">
   body {
     background: #f5f5f5;
+    
   }
 
   #home {
@@ -60,7 +61,6 @@
   }
   .footer {
     width: 1080px;
-    background: #e3e2e2;
     position: relative;
     bottom: 0;
     margin: 0 auto;

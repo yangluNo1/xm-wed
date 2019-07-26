@@ -28,8 +28,8 @@
           <span class="extityd">预订送情侣酒店+机票补贴+婚纱一件</span>
         </p>
         <p class="exshic">
-          <span class="jiage">￥{{dianpus.xianjia}}.00</span>
-          <span class="shichangjia">市场价：￥{{dianpus.yuanjia}}.00</span>
+          <span class="jiage">￥{{dianpus.xianjia}}</span>
+          <span class="shichangjia">市场价：￥{{dianpus.yuanjia}}</span>
         </p>
         <p class="sxlippin">
           <span class="lipini">到店礼</span>
@@ -179,6 +179,7 @@
   import '../../../assets/js/siema.min'
   import slides from '../../../assets/js/slide';
   import zxdangqi from '../Zxdangqi'
+  
   export default {
     name: 'Exhibitionsbody',
     data() {
@@ -200,23 +201,29 @@
             src: require('../../../assets/4.jpg')
           }
         ],
-        dianpus: this.$route.params.id,
+        dianpus: JSON.parse(sessionStorage.getItem('objStr')),
         dialogTableVisible: false,
         dialogFormVisible: false
       }
     },
     mounted: function () {
       slides();
-      console.log(this.dianpus);
-
+      //console.log('参数'+this.$route.params.id)
+     // sessionStorage.setItem("id", this.$route.params.id);
+      console.log('参数'+this.$route.params.id)
+      console.log('参数'+JSON.parse(sessionStorage.getItem('objStr')))
+    
+       if(this.dianpus.id==null){
+           this.$router.push('/404')
+       }
     },
-    methods: {
+    methods:{
       zxopen() {
         this.dialogFormVisible = true
         this.$refs.child.parentMsg(this.dialogFormVisible)
       }
     },
-    components: {
+    components:{
       zxdangqi
     }
   }
@@ -226,6 +233,9 @@
 
 
 <style scoped="">
+.Exhibitionsbody{
+  overflow: hidden;
+}
   dt,
   dd,
   ul,

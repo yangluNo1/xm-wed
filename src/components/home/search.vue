@@ -21,8 +21,10 @@
                   <router-link :to="{name:'jingpin',params:{id:search}}">{{search.dianming}}</router-link>
                 </span>
                 <span class="dizhi">{{search.dizhi}}</span>
+                <span
+                  style=" width: 355px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;color: #88c5c0;font-size:12px;margin-bottom:0px">0对新人在30天内预约过该商家</span>
                 <span class="yuanjia">￥{{search.xianjia}}起</span>
-                <span class="nr">{{search.nr}}</span>
+                <span class="daodian">到 店 礼<em></em></span><span class="nr">{{search.nr}}</span>
 
               </div>
             </li>
@@ -30,7 +32,7 @@
           </ul>
         </div>
         <div class="huodong">
-          <div class="tuijian"><span>|</span><span>活动推荐</span></div>
+          <div class="tuijian"><span style="padding-left:20px;">|</span><span>活动推荐</span></div>
           <ul>
             <li v-for="hd in huodong" :key="hd.index">
               <div>
@@ -48,10 +50,12 @@
         </div>
       </div>
     </div>
+    <footers></footers>
   </div>
 </template>
 <script>
   import Headers from "./Headers";
+  import footers from './Footer'
   export default {
     name: "search",
     data() {
@@ -62,10 +66,10 @@
           title: "【店长推荐】消费透明/产品包邮/送全新婚纱",
           href: "/jianjie/jingpin",
           dizhi: "滨海街道黄盾溪头下71号",
-          xianjia: '5555',
-          yuanjia: "1000",
+          xianjia: '5555.00',
+          yuanjia: "1000.00",
           shoucang: 23,
-          nr: "内容",
+          nr: "点进来有优惠",
           images: require("../../assets/5.jpg")
         }],
         huodong: [{
@@ -74,20 +78,47 @@
           stopname: "厦门卡卡服装设计师",
           href: "/jianjie/jingpin",
           dizhi: "滨海街道黄盾溪头下71号",
-          xianjia: '5555',
-          yuanjia: "1000",
+          xianjia: '5555.00',
+          yuanjia: "1000.00",
           shoucang: 23,
           images: require("../../assets/6.jpg")
         }]
       }
     },
     components: {
-      Headers
+      Headers,
+      footers
     }
   }
 
 </script>
 <style scoped>
+  .footer {
+    width: 1080px;
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+  }
+
+  .daodian em {
+    position: absolute;
+    border: 5px solid #fff;
+    border-right: 4px solid #ff4163;
+    top: 4px;
+    left: -9px;
+  }
+
+  .daodian {
+    background: #ff4163;
+    color: #fff;
+    padding: 0 5px;
+    margin-right: 10px;
+    position: relative;
+    float: left;
+    display: block;
+    font-size: 13px;
+  }
+
   .dianpu strong {
     font-size: 12px;
     color: #999;
@@ -104,7 +135,7 @@
 
   .dianpu a {
     font-size: 12px;
-    color: #666;
+    color: #999;
     float: left;
     padding: 5px;
   }
@@ -117,9 +148,10 @@
   }
 
   .bt a:hover,
-  .biaoti a:hover {
+  .biaoti a:hover,
+  .dianpu a:hover {
 
-    color: red;
+    color: #ff4163;
   }
 
   .bt a,
@@ -129,20 +161,22 @@
   }
 
   .huodong .bt {
-    font-size: 14px;
+    font-size: 15px;
     overflow: hidden;
     word-break: keep-all;
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 100%;
     display: block;
-    font-weight: 700;
+
   }
 
   .huodong li {
     margin: 10px;
     border: 1px solid #e7e7e7;
     width: 248px;
+    padding: 10px;
+    overflow: hidden;
   }
 
   .huodong span:nth-child(1) {
@@ -155,7 +189,8 @@
   .list {
 
     float: left;
-    width: 75%
+    width: 71%;
+    margin-top: 30px;
   }
 
   .huodong {
@@ -166,7 +201,8 @@
   }
 
   .nr {
-    font-size: 14px;
+    font-size: 12px;
+    color: #666;
   }
 
   .jieshao span {
@@ -177,8 +213,8 @@
   .jieshao .biaoti {
     width: 98%;
     height: 30px;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 17px;
+    font-weight: bold;
     display: block;
 
     line-height: 30px;
@@ -205,24 +241,26 @@
 
   .jieshao {
     width: 50%;
-    height: 150px;
-
-    margin: 20px;
+    padding-left: 10px;
+    overflow: hidden;
+    margin: 10px;
     float: left;
   }
 
   .imgbox {
     width: 30%;
     height: 150px;
-
-    margin: 20px;
+    overflow: hidden;
+    margin: 10px 0;
     float: left;
   }
 
   .list li {
 
-    height: 200px;
+
+    overflow: hidden;
     border: 1px solid #e7e7e7;
+    padding: 0 10px;
     margin: 20px;
   }
 
@@ -234,8 +272,6 @@
   }
 
   .tishi {
-
-    color: red;
     height: 30px;
     background: #f4f4f4;
     border: 5px solid #f3ebeb;
@@ -244,7 +280,8 @@
     padding-left: 10px;
     font-weight: 700;
   }
-  .search{
+
+  .search {
     background: #fff;
     width: 1080px;
     margin: 0 auto;

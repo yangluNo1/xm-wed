@@ -3,8 +3,8 @@
     <div class="protopbox">
       <div class="toplogobox" style="z-index:99;position:relative">
         <div class="toplogo fl">
-          <router-link to="/" title="wed114结婚网">
-            <img src="http://static3.wed114.cn/shop/vip/images/logo_03.png" alt="Wed114结婚网" /></router-link>
+          <router-link to="/" title="卡卡全球旅拍">
+            <img src="@/assets/logo_03.png" alt="卡卡全球旅拍" /></router-link>
         </div>
         <div class="fr toptxt">
           <router-link rel="nofollow" to="/home" target="_blank" title="商家中心">商家中心</router-link>

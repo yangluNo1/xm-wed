@@ -156,8 +156,7 @@
     width: 100%;
     text-align: center;
     margin-top: 20px;
-    display: flow-root;
-    height: 500px;
+   overflow: hidden;
   }
 
   .title {

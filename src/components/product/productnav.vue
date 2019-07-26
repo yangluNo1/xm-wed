@@ -52,7 +52,7 @@
 </script>
 <style scoped="">
   .pronavbox {
-    background: black;
+    background: rgb(226, 35, 83);
     width: 980px;
     margin: 0 auto;
     height: 40px;

@@ -14,16 +14,18 @@
         <div class="" style="overflow: hidden; position: relative; width: 1080px; height: 580px;">
           <div class="" style="position: relative; left: 0px; width: 1080px; height: 580px;">
             <div class="tehuibox clearfix " style="">
-              <ul class="slider1">
+              <ul class="slider1" :style="{  transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
 
-                <li class="slide col-sm-3" v-for="pro in product" :key="pro.index">
+                <li class="slide" v-for="pro in product" :key="pro.index" v-on:click="que(pro)">
                   <p class="picpx">
-                    <router-link :to="{name:'jingpin',params:{id:pro}}">
-                      <img :src="pro.images" alt="pro.title" :title="pro.title" />
+
+                    <router-link :to="{name:'jingpin',params:{id:pro}}" target="_blank">
+                      <img :src="pro.images" :alt="pro.title" :title="pro.id" />
+
                     </router-link>
                   </p>
                   <p class="miaoshubox"> <span class="pb5">
-                      <router-link :to="{name:'jingpin',params:{id:pro}}"> {{pro.title}}</router-link>
+                      <router-link :to="{name:'jingpin',params:{id:pro}}" target="_blank"> {{pro.title}}</router-link>
                     </span>
                     <span class="mscont">{{pro.describe}}</span> </p>
                   <p class="miaoshujiage clearfix"> <span class="jiage"><em>￥</em><b>{{pro.xianjia}}.00</b></span>
@@ -40,19 +42,19 @@
 
           </div>
         </div>
-        <a class="pinpaiLarrow sprev snav" href="javascript:;" title="上一个"></a>
-        <a class="pinpaiRarrow snext snav" href="javascript:;" title="下一个"></a>
+        <a class="pinpaiLarrow sprev snav" href="javascript:;" title="上一个" @click="moveCarousel(-1)"
+          :disabled="atHeadOfList"></a>
+        <a class="pinpaiRarrow snext snav" href="javascript:;" title="下一个" @click="moveCarousel(1)"
+          :disabled="atEndOfList"></a>
       </div>
     </div>
   </div>
 </template>
 <script>
-  import '../../assets/js/jquery.bxslider.js';
-  import discount from '../../assets/js/discount.js';
   var product;
   export default {
     mounted: function () {
-      discount();
+
     },
     data() {
       return {
@@ -62,7 +64,7 @@
             images: require("../../assets/2.jpg"),
             title: "【店长推荐】消费透明/产品包邮/送全新婚纱",
             describe: "性价比高，无隐形消费",
-            xianjia: "4588",
+            xianjia: "1588",
             yuanjia: "5588",
             shoucang: 105,
             flcompany: "厦门苏禾婚纱摄影工作室"
@@ -73,7 +75,7 @@
             images: require("../../assets/2.jpg"),
             title: "【店长推荐】消费透明/产品包邮/送全新婚纱",
             describe: "性价比高，无隐形消费",
-            xianjia: "4588",
+            xianjia: "2588",
             yuanjia: "5588",
             shoucang: 105,
             flcompany: "厦门苏禾婚纱摄影工作室"
@@ -84,7 +86,7 @@
             images: require("../../assets/2.jpg"),
             title: "【店长推荐】消费透明/产品包邮/送全新婚纱",
             describe: "性价比高，无隐形消费",
-            xianjia: "4588",
+            xianjia: "3588",
             yuanjia: "5588",
             shoucang: 105,
             flcompany: "厦门苏禾婚纱摄影工作室"
@@ -99,11 +101,60 @@
             yuanjia: "5588",
             shoucang: 105,
             flcompany: "厦门苏禾婚纱摄影工作室"
+          },
+           {
+            id: 3,
+            hrefs: "/jianjie/jingpin",
+            images: require("../../assets/2.jpg"),
+            title: "【店长推荐】消费透明/产品包邮/送全新婚纱",
+            describe: "性价比高，无隐形消费",
+            xianjia: "4588",
+            yuanjia: "5588",
+            shoucang: 105,
+            flcompany: "厦门苏禾婚纱摄影工作室"
+          },
+           {
+            id: 3,
+            hrefs: "/jianjie/jingpin",
+            images: require("../../assets/2.jpg"),
+            title: "【店长推荐】消费透明/产品包邮/送全新婚纱",
+            describe: "性价比高，无隐形消费",
+            xianjia: "4588",
+            yuanjia: "5588",
+            shoucang: 105,
+            flcompany: "厦门苏禾婚纱摄影工作室"
           }
-        ]
-
+        ],
+        currentOffset: 0,
+        windowSize: 3,
+        paginationFactor: 367
       }
 
+    },
+
+    computed: {
+      atEndOfList() {
+      
+        return this.currentOffset <= (this.paginationFactor * -1) * (this.product.length - this.windowSize);
+      },
+      atHeadOfList() {
+        return this.currentOffset === 0;
+      },
+    },
+    methods: {
+      que(pro) {
+        sessionStorage.setItem('objStr', JSON.stringify(pro))
+        this.$router.go(0)
+      },
+      moveCarousel(direction) {
+        // Find a more elegant way to express the :style. consider using props to make it truly generic
+        if (direction === 1 && !this.atEndOfList) {
+
+          this.currentOffset -= this.paginationFactor;
+        } else if (direction === -1 && !this.atHeadOfList) {
+          this.currentOffset += this.paginationFactor;
+        }
+      },
     }
   }
 
@@ -116,6 +167,14 @@
 </style>
 
 <style scoped="">
+
+  .slider1 {
+    transition: all 0.5s;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+  }
+
   a {
     list-style: none;
     text-decoration: none;
@@ -209,16 +268,15 @@
     list-style: none;
     padding: 0;
     z-index: 99;
-    height: 500px;
   }
 
   .tehuibox ul {
-    width: 1390px
+    /* width: 1390px */
   }
 
   .tehuibox li {
     float: left;
-
+    margin-right: 25px;
     width: 340px;
     border: 1px solid #e9e9e9;
     /*padding-top: 20px;e9e9e9*/

@@ -4,7 +4,7 @@
       <div class="pubLnavbox">
         <ul>
 
-          <li v-for="nav in Navigation" :key="nav.index">
+          <li v-for="nav in Navigation" :key="nav.index" :class="{active:active == nav.href}" @click="selected(nav.href)">
             <router-link :to="nav.href" :title="nav.title">
               {{nav.value}}
             </router-link>
@@ -85,8 +85,17 @@
             title: "电子请帖",
             value: "电子请帖"
           }
-        ]
+        ],active:''
       }
+    },methods:{
+      selected(href){
+        this.active=href;
+      }
+    }
+    ,mounted(){
+      this.active=this.$route.path
+    //  console.log('导航'+this.$route.path)
+    
     }
   }
 
@@ -105,7 +114,7 @@
     margin: 0 auto;
     height: 40px;
     font-size: 15px;
-    background: black;
+    background:black;
     margin-top: 80px
   }
 
@@ -146,13 +155,13 @@
     line-height: 40px
   }
 
-  .pubLnavbox li a.current {
-    background: #da2c4c;
+  .active{
+    background: rgb(226, 35, 83);
     color: #fff
   }
 
   .pubLnavbox li a:hover {
-    background: #da2c4c;
+    background: rgb(226, 35, 83);
     color: #fff
   }
 
